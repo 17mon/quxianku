@@ -58,14 +58,14 @@ class IP_Quxian
         $start      = unpack('Vlen', self::$index[$tmp_offset] . self::$index[$tmp_offset + 1] . self::$index[$tmp_offset + 2] . self::$index[$tmp_offset + 3]);
 
         $index_offset = $index_length = [];
-        for ($start = $start['len'] * 12 + 1024; $start < self::$offset['len'] - 1028; $start += 12)
+        for ($start = $start['len'] * 13 + 1024; $start < self::$offset['len'] - 1028; $start += 13)
         {
             if ((self::$index{$start} . self::$index{$start + 1} . self::$index{$start + 2} . self::$index{$start + 3}) <= $nip)
             {
                 if ($nip <= (self::$index{$start + 4} . self::$index{$start + 5} . self::$index{$start + 6} . self::$index{$start + 7}))
                 {
-                    $index_offset = unpack('Vlen', self::$index{$start + 8} . self::$index{$start + 9} . self::$index{$start + 10} . "\x0");
-                    $index_length = unpack('Clen', self::$index{$start + 11});
+                    $index_offset = unpack('Vlen', self::$index{$start + 8} . self::$index{$start + 9} . self::$index{$start + 10} . self::$index[$start + 11]);
+                    $index_length = unpack('Clen', self::$index{$start + 12});
 
                     break;
                 }
