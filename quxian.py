@@ -53,7 +53,7 @@ class Quxian:
                     break
             start += 13
 
-        if index_offset == 0:
+        if index_offset == -1:
             return "N/A"
         print(index_offset)
         print(index_length)
