@@ -55,8 +55,7 @@ class Quxian:
 
         if index_offset == -1:
             return "N/A"
-        print(index_offset)
-        print(index_length)
+
         res_offset = offset + index_offset - 262144
         return binary[res_offset:res_offset + index_length].decode('utf-8')
 
